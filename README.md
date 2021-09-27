@@ -3,7 +3,8 @@ Initialize project
 1. Download Docker
 2. Run container: sudo docker-compose up -d
 
-# Previsualization
+# Previsualization*
+*Before trying nginx
 1. Field Worker List
 ![field_worker_list](https://user-images.githubusercontent.com/3943324/134952231-b8647ee0-5849-421e-a180-0e44c8303f8e.png)
 
