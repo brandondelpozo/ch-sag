@@ -3,11 +3,11 @@ version: '3.8'
 services:
   web:
     build: .
-    command: python /ch-sag/manage.py runserver 0.0.0.0:8000
+    command: gunicorn ch-sag.wsgi:application --bind 0.0.0.0:8001 --timeout 1800
     volumes:
       - .:/ch-sag
-    ports:
-      - 8000:8000
+    expose:
+      - 8001
     depends_on:
       - db
   db:
@@ -16,6 +16,12 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
+  nginx:
+    build: ./nginx
+    ports:
+      - 8000:80
+    depends_on:
+      - web
 
 volumes:
   postgres_data:
