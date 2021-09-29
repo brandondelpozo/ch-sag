@@ -32,5 +32,5 @@ Initialize project
 11. Paginations (10 items)... done
 12. Partial update /v1/field_workers/<id>/... done
 13. Delete /v1/field_workers/<id>/... done
-14. Pytest... done
-14. nginx... doing
+14. Pytest... doing
+14. nginx... done
