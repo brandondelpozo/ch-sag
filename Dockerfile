@@ -16,5 +16,3 @@ RUN apt-get update && apt-get install -y  libmariadb-dev-compat libmariadb-dev \
 COPY Pipfile Pipfile.lock /ch-sag/
 RUN pip install pipenv && pipenv install --system
 
-# Copy project
-COPY . /ch-sag/

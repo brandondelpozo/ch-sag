@@ -1,23 +1,32 @@
 version: '3.8'
 
 services:
-  web:
-    build: .
-    command: gunicorn ch-sag.wsgi:application --bind 0.0.0.0:8001 --timeout 1800
-    volumes:
-      - .:/ch-sag
-    expose:
-      - 8001
-    depends_on:
-      - db
   db:
     image: postgres:11
     volumes:
-      - postgres_data:/var/lib/postgresql/data/8001
+      - /data/postgres_data:/var/lib/postgresql/data
     environment:
-      - "POSTGRES_HOST_AUTH_METHOD=trust"
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  web:
+    build: .
+    image: ch_sag
+    command: gunicorn config.wsgi:application --bind 0.0.0.0:8001
+    restart: always
+    volumes:
+      - .:/ch-sag
+    ports:
+      - '8001:8001'    
+    depends_on:
+      - db
+
   nginx:
     build: ./nginx
+    image: nginx_sh_sag
+    volumes:
+      - .:/ch-sag
     ports:
       - 8000:80
     depends_on:
