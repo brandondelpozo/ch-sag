@@ -6,5 +6,5 @@ from .views import FieldWorkerViewSet
 router = SimpleRouter()
 router.register('', FieldWorkerViewSet, basename='field_workers')
 
-
+app_name = 'workers'
 urlpatterns = router.urls
