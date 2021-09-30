@@ -18,6 +18,10 @@ Initialize project
 4. Field Worker Instance
 ![field_worker_instance](https://user-images.githubusercontent.com/3943324/134952361-ffb77f23-33b4-4e4a-a036-997012795daa.png)
 
+5. Pytest
+![docker-compose run --rm web pytest00](https://user-images.githubusercontent.com/3943324/135513515-55113383-f4a6-4487-977f-8676c6ba026a.png)
+
+
 # Todo list
 1. Postgress database... done
 2. Web for django... done
@@ -32,5 +36,5 @@ Initialize project
 11. Paginations (10 items)... done
 12. Partial update /v1/field_workers/<id>/... done
 13. Delete /v1/field_workers/<id>/... done
-14. Pytest... doing
+14. Pytest... done
 14. nginx... done
